@@ -46,9 +46,9 @@ static async Task TestGithubStuff(ActionInputs inputs, IHost host)
     Console.WriteLine($"Testing: {directory.FullName}");
     WalkDirectoryTree(directory);
 
-    DirectoryInfo workspaceDirectory = new(inputs.WorkspaceDirectory);
-    Console.WriteLine($"Testing: {workspaceDirectory.FullName}");
-    WalkDirectoryTree(workspaceDirectory);
+   //  DirectoryInfo workspaceDirectory = new(inputs.WorkspaceDirectory);
+    // Console.WriteLine($"Testing: {workspaceDirectory.FullName}");
+    // WalkDirectoryTree(workspaceDirectory);
 
     Console.WriteLine("GOODBYE! :D");
 
