@@ -1,43 +1,44 @@
-name: 'Dustuu Github Action Test'
-description: 'Testing'
+name: 'BunnyCDN Deploy'
+description: 'WIP action for deploying to BunnyCDN via the official BunnyCDN .Net SDK'
 branding:
-  icon: sliders
-  color: purple
+  icon: upload-cloud
+  color: orange
 inputs:
-  owner:
-    description: 'The owner of the repo. Assign from github.repository_owner. Example, "dotnet".'
-    required: true
-  name:
-    description: 'The repository name. Example, "samples".'
-    required: true
-  branch:
-    description: 'The branch name. Assign from github.ref. Example, "refs/heads/main".'
-    required: true
-  dir:
-    description: 'The root directory to work from. Example, "path/to/code".'
-    required: true
   workspace:
     description: 'The workspace directory.'
     required: false
     default: '/github/workspace'
+  dir:
+    description: 'The root directory to upload from (relative to workspace). Example, "path/to/build/artifacts".'
+    required: true
+  bunny-cdn-username:
+    description: 'The username of the target Storage Zone. Example, "my-storage-zone".'
+    required: true
+  bunny-cdn-password:
+    description: 'The password of the target Storage Zone. Can not be the read-only password.'
+    required: true
+  bunny-cdn-region:
+    description: 'The primary region of the target Storage Zone. Example, "de".'
+    required: true
+  bunny-cdn-api-key:
+    description: 'The API key for the BunnyCDN account which owns the target Storage Zone'
+    required: true
 outputs:
   summary-title:
     description: 'The title of the code metrics action.'
-  summary-details:
-    description: 'A detailed summary of all the projects that were flagged.'
-  updated-metrics:
-    description: 'A boolean value, indicating whether or not the CODE_METRICS.md was updated as a result of running this action.'
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-  - '-o'
-  - ${{ inputs.owner }}
-  - '-n'
-  - ${{ inputs.name }}
-  - '-b'
-  - ${{ inputs.branch }}
-  - '-d'
-  - ${{ inputs.dir }}
   - '-w'
   - ${{ inputs.workspace }}
+  - '-d'
+  - ${{ inputs.dir }}
+  - '-u'
+  - ${{ inputs.bunny-cdn-username }}
+  - '-p'
+  - ${{ inputs.bunny-cdn-password }}
+  - '-r'
+  - ${{ inputs.bunny-cdn-region }}
+  - '-a'
+  - ${{ inputs.bunny-cdn-api-key }}
