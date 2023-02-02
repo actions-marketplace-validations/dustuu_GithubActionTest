@@ -12,7 +12,7 @@ LABEL repository="https://github.com/dotnet/samples"
 LABEL homepage="https://github.com/dotnet/samples"
 
 # Label as GitHub action
-LABEL com.github.actions.name="BunnyCDN Deploy"
+LABEL com.github.actions.name="BunnyCDN Test"
 # Limit to 160 characters
 LABEL com.github.actions.description="Upload files to BunnyCDN"
 # See branding:

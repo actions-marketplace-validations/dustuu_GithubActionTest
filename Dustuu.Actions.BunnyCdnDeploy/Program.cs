@@ -44,7 +44,7 @@ internal class Program
         DirectoryInfo directory = workspace.CreateSubdirectory(inputs.Directory);
         Console.WriteLine($"Directory Dir: {directory.FullName}");
 
-        BunnyCDNStorage bunnyCDNStorage = new(inputs.BunnyCdnUsername, inputs.BunnyCdnPassword, inputs.BunnyCdnRegion);
+        BunnyCDNStorage bunnyCDNStorage = new(inputs.StorageZoneUsername, inputs.StorageZonePassword, inputs.StorageZoneRegion);
 
         FilePathWrapper[] localFiles =
             directory
